@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var emails = [
+            'admin@gmail.com' ,'demo@gmail.com','demo2@gmail.com'
+        ]
+
+        var userInfo = [
+            {
+                email:'admin@gmail.com',
+                password:'123'
+            } ,
+            {
+                email:'admin1@gmail.com',
+                password:'1234' 
+            }
+        ] ;
+
+        //        userInfo.map(item=> { if (item.email == 'admin@gmail.com' && item.password == '123') alert(item.email);} ) 
+        let newarr = userInfo.filter(item=>item.email == 'admin@gmail.com' && item.password == '123' ) 
+        if(newarr.length >=1)
+        {
+            console.log("Login is true")
+        }
+
+
+
+        console.log(emails[0])
+    </script>
+</body>
+</html>
