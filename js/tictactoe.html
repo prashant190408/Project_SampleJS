@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.0-beta1 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+</head>
+
+<body>
+  <header>
+    <!-- place navbar here -->
+
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          <span class="navbar-brand mb-0 h1">TIC TAC TOE</span>
+        </div>
+      </nav>
+  </header>
+  <main>
+
+    <div class="container">
+
+        <div class="row">
+            
+                <div class="d-flex justify-content-center">
+
+                 <div id="tictactoe"></div> 
+                </div>
+               </div>
+               <br>
+               <p id="finalresult"></p>  
+
+               <button id="reset" height="100px" width="100px" onclick="ResetValue()">Reset</button>
+
+
+    </div>
+
+      
+  </main>
+  <footer>
+    <!-- place footer here -->
+  </footer>
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+    integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+    integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous">
+  </script>
+</body>
+
+
+
+</html>
+
+<script>
+
+//event.preventDefault();
+let printletter = 'X';
+function printbutton(){
+
+    
+  for(let i=0;i<9;i++){
+
+    const varInput = document.createElement("button");
+    varInput.setAttribute("id","txt"+i);
+    varInput.style.width = '200px';
+    varInput.style.height = '200px'; // setting the height to 200px
+    varInput.style.background = 'teal'; // setting the background color to teal
+    varInput.style.color = 'white'; // setting the color to white
+    varInput.style.fontSize = '50px';
+    varInput.innerHTML="&nbsp;";
+    varInput.addEventListener('click', event =>{printox(varInput)});
+    document.getElementById('tictactoe').appendChild(varInput);
+    
+    if(i==2 || i==5) {
+      var FN = document.createElement("br");
+      document.getElementById('tictactoe').appendChild(FN);
+
+    }    
+  }
+} 
+function printox(e){
+    console.log(e);
+    event.preventDefault();
+    e.innerHTML=printletter;
+    
+    printletter = (printletter=='X'? 'O':'X');
+    checkWhoWon();
+
+}
+printbutton();
+
+function ResetValue(){
+
+    for(var j=0;j<9;j++){
+
+       document.getElementById("txt"+j).innerHTML="&nbsp;"
+       document.getElementById("txt"+j).removeAttribute("disabled");
+       
+        }
+        document.getElementById("finalresult").innerHTML="";
+        printletter="X";
+
+    }
+
+
+function checkWhoWon(){
+
+    var arr =[];
+    var result;
+    for(var j=0;j<9;j++){
+           
+        arr[j] = document.getElementById("txt"+j).innerHTML!="&nbsp;"?  document.getElementById("txt"+j).innerHTML : "-" ;
+    }
+
+if(arr[0]=="X" || arr[0]== "O"){
+    
+    if((arr[0]==arr[1] && arr[1]==arr[2]) || (arr[0]==arr[3] && arr[3]==arr[6]) || (arr[0]==arr[4] && arr[4]==arr[8]) ){
+
+    result =  arr[0] =="X"? "Gamer#1 Won" :"Gamer#2 Won";
+    document.getElementById("finalresult").style.color="Red";
+    document.getElementById("finalresult").innerHTML=result;
+
+    for(var m=0;m<9;m++){
+        document.getElementById("txt"+m).setAttribute("disabled","disabled");
+            
+    }
+    }   
+} 
+if(arr[1]=="X" || arr[1]== "O"){
+    
+    if((arr[1]==arr[4] && arr[4]==arr[7])){
+
+    result =  arr[1] =="X"? "Gamer#1 Won" :"Gamer#2 Won";
+    document.getElementById("finalresult").style.color="Red";
+    document.getElementById("finalresult").innerHTML=result;
+
+    for(var m=0;m<9;m++){
+        document.getElementById("txt"+m).setAttribute("disabled","disabled");
+            
+    }
+    }
+}        
+if(arr[2]=="X" || arr[2]== "O"){
+    
+    if((arr[2]==arr[4] && arr[4]==arr[6]) || (arr[2]==arr[5] && arr[3]==arr[8])){
+    result =  arr[2] =="X"? "Gamer#1 Won" :"Gamer#2 Won";
+    document.getElementById("finalresult").style.color="Red";
+    document.getElementById("finalresult").innerHTML=result;
+
+    for(var m=0;m<9;m++){
+        document.getElementById("txt"+m).setAttribute("disabled","disabled");
+            
+    }
+    }
+}    
+if(arr[3]=="X" || arr[3]== "O"){
+    
+    if((arr[3]==arr[4] && arr[4]==arr[5])){
+
+    result =  arr[3] =="X"? "Gamer#1 Won" :"Gamer#2 Won";
+    document.getElementById("finalresult").style.color="Red";
+    document.getElementById("finalresult").innerHTML=result;
+
+    for(var m=0;m<9;m++){
+        document.getElementById("txt"+m).setAttribute("disabled","disabled");
+            
+    }
+    }
+}        
+if(arr[6]=="X" || arr[6]== "O"){
+    
+    if((arr[6]==arr[7] && arr[7]==arr[8])){
+
+    result =  arr[6] =="X"? "Gamer#1 Won" :"Gamer#2 Won";
+    document.getElementById("finalresult").style.color="Red";
+    document.getElementById("finalresult").innerHTML=result;
+
+    for(var m=0;m<9;m++){
+        document.getElementById("txt"+m).setAttribute("disabled","disabled");
+            
+    }
+    }    
+}
+    arr=[];
+} 
+
+</script>

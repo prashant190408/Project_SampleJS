@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<div class="container">
+    <div class="row">
+
+        <div class="col-sm-6">
+
+            Enter the desired number:<input type="text" id="varno"/>
+            <button onclick="findNoofPass(document.getElementById('varno').value)">Click Me</button>
+            <br>
+            <p>No# of Pass and final Digit is: </p><p id="finaldata"></p>
+        </div>
+
+
+    </div>
+
+
+</div>
+
+</body>
+</html>
+<script>
+let noofpass=[];
+function findNoofPass(varno){
+
+    var newvarno=0;
+    if(varno.length==1){
+        noofpass.push([1]);
+        document.getElementById('finaldata').innerHTML=noofpass.length-1+" pass and final Digit is:"+varno;
+        noofpass=[];
+        return;
+    }
+    else{
+        for(var i=0;i<varno.length;i++){
+
+            newvarno+=parseInt(varno.substr(i,1))
+
+        }
+        noofpass.push([1]);
+        console.log(newvarno + noofpass)
+    }
+    
+       findNoofPass(newvarno.toString());
+}
+
+</script>

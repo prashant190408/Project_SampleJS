@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.0-beta1 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+</head>
+
+<body>
+  <header>
+    <!-- As a heading -->
+<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <span class="navbar-brand mb-0 h1">Navbar</span>
+    </div>
+  </nav>
+  </header>
+  <div class="row">
+    <p class="text-center" id="ptag">Hello React</p>
+  </div>
+ <div class="container" id="containers">
+    <br>
+    <div class="row">
+        <div class="col-sm-6">
+        <select class="form-select form-select-lg mb-3" onchange="changeTextColor(this)">
+            <option selected>Select Text Color</option>
+            <option value="Red">Red</option>
+            <option value="Green">Green</option>
+            <option value="Blue">Blue</option>
+          </select>
+        </div>  
+        
+        <div class="col-sm-6">
+        <select class="form-select form-select-lg mb-3" onchange="changeBackgroundColor(this)">
+            <option selected>Select Background Color</option>
+            <option value="Red">Red</option>
+            <option value="Green">Green</option>
+            <option value="Blue">Blue</option>
+          </select>
+          </div>
+    </div>   
+    <br>
+    <div class="row">
+        <div class="col-sm-6">
+        <select class="form-select form-select-lg mb-3" onchange="changeFontSize(this)">
+            <option selected>Select Font Size</option>
+            <option value="22px">22px</option>
+            <option value="44px">44px</option>
+            <option value="55px">55px</option>
+          </select>
+        </div>  
+        
+        <div class="col-sm-6">
+        <select class="form-select form-select-lg mb-3" onchange="changeFontFamily(this)">
+            <option selected>Select Font Family</option>
+            <option value="Arial">Arial</option>
+            <option value="Calibri">Calibri</option>
+            <option value="Verdana">Verdana</option>
+          </select>
+          </div>
+    </div>   
+    <div class="row">
+        <div class="col-sm-6">
+        <select class="form-select form-select-lg mb-3" onchange="changeMargin(this)">
+            <option selected>Select Margin</option>
+            <option value="10px">10px</option>
+            <option value="20px">20px</option>
+            <option value="30px">30px</option>
+          </select>
+        </div>  
+        
+        <div class="col-sm-6">
+        <select class="form-select form-select-lg mb-3" onchange="changeGradient(this)">
+            <option selected>Select Gradient</option>
+            <option value="liner-gradient">liner-gradient</option>
+            <option value="radial-gradient">radial-gradient</option>
+          </select>
+          </div>
+    </div>   
+
+    <br>
+    <div class="row">
+        <div class="col-sm-6">
+        <select class="form-select form-select-lg mb-3" onchange="changeBorderRadius(this)">
+            <option selected>Select Border Radius</option>
+            <option value="60px">60px</option>
+            <option value="90px">90px</option>
+            <option value="120px">120px</option>
+          </select>
+        </div>  
+        <div class="col-sm-6"></div>
+
+
+ </div>
+ <div class="container">
+<br><br><br><br>
+    <div class="d-flex justify-content-center">
+        <p id="cssgen"></p>
+
+    </div>
+
+ </div>
+
+ 
+ 
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+    integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+    integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>
+<script>
+    let cssgenarr=[];
+    var i=0;
+    function changeTextColor(e){
+        document.getElementById('ptag').style.color=e.value;
+        addcsselement("color",e.value);
+        displaycss();
+    }
+
+    function changeBackgroundColor(e){
+        document.getElementById('ptag').style.backgroundColor=e.value;
+        addcsselement("background-color",e.value);
+        displaycss();
+    }
+
+
+    function changeFontSize(e){
+        document.getElementById('ptag').style.fontSize=e.value;
+        addcsselement("font-size",e.value);
+        displaycss();
+    }
+
+    function changeFontFamily(e){
+        document.getElementById('ptag').style.fontFamily=e.value;
+        addcsselement("font-family",e.value);
+        displaycss();
+    }
+
+    
+    function changeMargin(e){
+        document.getElementById('ptag').style.margin=e.value;
+        addcsselement("margin",e.value);
+        displaycss();
+    }
+
+    function changeGradient(e){
+
+        if (e.value =="liner-gradient"){
+
+          //'linear-gradient("to right", "Red", "Blue")'
+
+            document.getElementById('ptag').style.background = 'linear-gradient(to right, Red, Blue)';//linearGradient("to right, #f32170,#ff6b08, #cf23cf, #eedd44");
+
+        }
+    
+    }
+    
+    function changeBorderRadius(e){
+      console.log(e.value);
+        document.getElementById('ptag').style.border = "2px solid red";
+        document.getElementById('ptag').style.padding="10px";
+        document.getElementById('ptag').style.borderRadius=e.value;
+        addcsselement("border-radius",e.value);
+        displaycss();
+
+        }
+
+    function displaycss(){
+        var finalstr=" ";
+        console.log(cssgenarr);
+        for(var j=0;j<cssgenarr.length;j++){
+
+            finalstr=finalstr+cssgenarr[j][0]+" "+":"+" "+cssgenarr[j][1]+"; ";
+        }
+
+        console.log(finalstr);
+        document.getElementById('cssgen').innerHTML=finalstr;
+
+    }
+
+    function  addcsselement(element,value){
+        var finalstr="";
+        var founditem=0;
+
+        if(cssgenarr.length>0 && cssgenarr.length!=undefined){
+
+            for(var j=0;j<cssgenarr.length;j++){
+                if(cssgenarr[j][0]==element){
+                       cssgenarr.splice(j,1);
+                       cssgenarr.push([element,value]); 
+                       founditem=1;
+                }
+            
+            }
+        }
+
+        if(founditem==0)
+        {
+
+            cssgenarr.push([element,value]);
+        }
+    }
+
+</script>
